@@ -194,6 +194,10 @@ class Calculus(Scene):
         note.to_edge(UP, buff=0.4)
         self.play(Write(note))
         self.wait(1.5)
+        # Freeze updaters before fading: TracedPath keeps appending points each
+        # frame, which mismatches point counts mid-FadeOut and raises broadcast errors.
+        for mob in (dot_f, tan, dot_fp, trace):
+            mob.clear_updaters()
         self.play(FadeOut(axes_f), FadeOut(axes_fp), FadeOut(g_f), FadeOut(lab_f),
                   FadeOut(lab_fp), FadeOut(dot_f), FadeOut(tan), FadeOut(dot_fp),
                   FadeOut(trace), FadeOut(note))
@@ -307,6 +311,8 @@ class Calculus(Scene):
         fact.next_to(Flab, DOWN, buff=0.3)
         self.play(Write(fact))
         self.wait(1.2)
+        area.clear_updaters()
+        vline.clear_updaters()
         self.play(FadeOut(axes), FadeOut(graph), FadeOut(area), FadeOut(vline),
                   FadeOut(Flab), FadeOut(fact))
 
