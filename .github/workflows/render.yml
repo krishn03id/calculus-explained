@@ -48,7 +48,7 @@ jobs:
         run: |
           mkdir -p out
           xvfb-run -a -s "-screen 0 3840x2160x24" \
-            manimgl scene.py Calculus -w --uhd --frame_rate 30
+            manimgl scene.py Calculus -w --uhd --fps 30
           echo "--- produced mp4 files ---"
           find . -name '*.mp4' -print
           vid=$(find . -name 'Calculus.mp4' -print -quit)
