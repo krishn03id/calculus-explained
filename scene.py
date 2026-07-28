@@ -341,14 +341,14 @@ class Calculus(Scene):
 
     # ---------- 7. why it matters / outro ----------
     def beat_outro(self):
-        chain = Tex(
-            r"s(t) \;\overset{\mathrm{derivative}}{\longrightarrow}\; v(t)=s'(t)"
-            r" \;\overset{\mathrm{derivative}}{\longrightarrow}\; a(t)=v'(t)",
-            font_size=28)
+        chain = Tex(r"s(t) \;\longrightarrow\; v(t)=s'(t) \;\longrightarrow\; a(t)=v'(t)",
+                    font_size=30)
         chain.to_edge(UP, buff=0.8)
-        self.play(Write(chain))
+        chain_cap = Text("each arrow takes a derivative", font_size=22, color=GREY_B)
+        chain_cap.next_to(chain, DOWN, buff=0.25)
+        self.play(Write(chain), Write(chain_cap))
         ex = Tex(r"s(t)=t^2 \;\to\; v(t)=2t \;\to\; a(t)=2", font_size=28, color=BLUE)
-        ex.next_to(chain, DOWN, buff=0.5)
+        ex.next_to(chain_cap, DOWN, buff=0.5)
         self.play(Write(ex))
 
         app2 = Text("area under velocity  =  distance traveled", font_size=24, color=GREEN)
@@ -358,7 +358,7 @@ class Calculus(Scene):
         app3.next_to(app2, DOWN, buff=0.4)
         self.play(Write(app3))
         self.wait(1.6)
-        self.play(FadeOut(chain), FadeOut(ex), FadeOut(app2), FadeOut(app3))
+        self.play(FadeOut(chain), FadeOut(chain_cap), FadeOut(ex), FadeOut(app2), FadeOut(app3))
 
         recap = VGroup(
             Text("Limits let us speak of the instant.", font_size=30),
