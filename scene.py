@@ -342,8 +342,8 @@ class Calculus(Scene):
     # ---------- 7. why it matters / outro ----------
     def beat_outro(self):
         chain = Tex(
-            r"s(t) \;\xrightarrow{\;\text{derivative}\;}\; v(t)=s'(t)"
-            r" \;\xrightarrow{\;\text{derivative}\;}\; a(t)=v'(t)",
+            r"s(t) \;\overset{\mathrm{derivative}}{\longrightarrow}\; v(t)=s'(t)"
+            r" \;\overset{\mathrm{derivative}}{\longrightarrow}\; a(t)=v'(t)",
             font_size=28)
         chain.to_edge(UP, buff=0.8)
         self.play(Write(chain))
