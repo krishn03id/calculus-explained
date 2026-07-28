@@ -21,7 +21,7 @@ jobs:
             ffmpeg xvfb \
             libglfw3 libgl1-mesa-glx libgl1-mesa-dri libegl1-mesa mesa-utils \
             pkg-config libcairo2-dev libpango1.0-dev fonts-dejavu \
-            texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended dvisvgm ghostscript
+            texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-science texlive-pictures dvisvgm ghostscript
           sudo apt-get install -y libraqm0 || true
 
       - name: Set up Python
